@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Zooming</title>
+    <meta name="description" content="DESCRIPTIONHERE" />
+    <meta name="author" content="Frontendscript" />
+   
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <style>
+      .container {
+        max-width: 600px;
+      }
+
+      section.header {
+        margin-top: 4rem;
+        text-align: center;
+      }
+
+      section.content {
+        text-align: center;
+      }
+
+      footer {
+        text-align: center;
+      }
+
+      .value-img {
+        display: block;
+        text-align: center;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media (min-width: 550px) {
+        .header {
+          margin-top: 10rem;
+        }
+      }
+
+      .button.button-primary {
+        background-color: #f9c04d !important;
+        border-color: #f9c04d !important;
+      }
+
+      .button.button-secondary {
+        background-color: #eee !important;
+        border-color: #eee !important;
+      }
+      /* Grid Zoom*/
+      .grid {
+        column-count: 4;
+        column-gap: 1rem;
+      }
+
+      .grid figure {
+        display: inline-block;
+        margin: 0 0 0 0;
+        width: 100%;
+      }
+
+      .grid img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+    
+</head>
+<body>
+		
+<div class="ScriptTop">
+    <div class="rt-container">
+        <div class="col-rt-4" id="float-right">
+             
+        </div>
+        <div class="col-rt-2">
+            <ul>
+                <li><a href="https://frontendscript.com/javascript-image-zoom-on-click">Back to the Tutorial</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>Zooming On Click jQuery Plugin</h1>
+                <p>Pure JavaScript & built with mobile in mind. Smooth animations with intuitive gestures.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+                <div class="value-img">
+                  <img id="img-default" src="img/journey_start_thumbnail.jpg" data-action="zoom" data-original="img/journey_start.jpg"
+                    alt="journey_start_thumbnail" />
+                </div>
+    
+    		</div>
+		</div>
+    </div>
+</section>
+
+<section class="content">
+  <div class="rt-container">
+    <div class="col-rt-12">
+    <h4>Image zoom that makes sense.</h4>
+
+    <ul>
+      <li>Pure JavaScript &amp; built with mobile in mind.</li>
+      <li>Smooth animations with intuitive gestures.</li>
+      <li>Zoom into a hi-res image if supplied.</li>
+      <li>Easy to integrate &amp; customizable.</li>
+    </ul>
+
+    <div class="value-img">
+      <a href="img/journey.jpg">
+        <img id="img-custom" src="img/journey_thumbnail.jpg" alt="journey_thumbnail" />
+      </a>
+    </div>
+
+    <p>
+      <small>Options below were designed to affect the second image only.</small>
+    </p>
+
+    <div class="row">
+      <a class="button" id="btn-fast">faster</a>
+      <a class="button" id="btn-dark">dark</a>
+      <a class="button" id="btn-scale-small">smaller</a>
+    </div>
+
+    <br>
+
+    <p>
+      <em>Faced with rolling sand dunes, age-old ruins, caves and howling winds, your passage will not be an easy one. The
+        goal is to get to the mountaintop, but the experience is discovering who you are, what this place is, and what
+        is your purpose.</em>
+    </p>
+  </div>
+</div>
+</section>
+
+<div class="rt-container">
+  <div class="col-rt-12">
+  <h4 style="margin-bottom:20px;">Grid Image Zoom</h4>
+<div class="grid">
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/800x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/300x600">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x900">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/300x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+  <figure>
+    <img src="http://via.placeholder.com/500x500">
+  </figure>
+</div>
+</div>
+</div>
+
+<!-- Scripts
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="js/zooming.min.js"></script>
+<script>
+  new Zooming().listen('.grid img')
+</script>
+<script>
+  const defaultZooming = new Zooming()
+  const customZooming = new Zooming()
+  const config = customZooming.config()
+  const TRANSITION_DURATION_DEFAULT = config.transitionDuration
+  const BG_COLOR_DEFAULT = config.bgColor
+  const SCALE_BASE_DEFAULT = config.scaleBase
+  const ACTIVE_CLASS = 'button-primary'
+
+  const btnFast = document.getElementById('btn-fast')
+  const btnDark = document.getElementById('btn-dark')
+  const btnScaleSmall = document.getElementById('btn-scale-small')
+
+  document.addEventListener('DOMContentLoaded', function () {
+    defaultZooming.listen('#img-default')
+    customZooming.listen('#img-custom')
+  })
+
+  btnFast.addEventListener('click', function (event) {
+    const transitionDuration = toggleActive(btnFast)
+      ? 0.2
+      : TRANSITION_DURATION_DEFAULT
+
+    customZooming.config({ transitionDuration })
+  })
+
+  btnDark.addEventListener('click', function (event) {
+    const bgColor = toggleActive(btnDark)
+      ? 'black'
+      : BG_COLOR_DEFAULT
+
+    customZooming.config({ bgColor })
+  })
+
+  btnScaleSmall.addEventListener('click', function (event) {
+    const scaleBase = toggleActive(btnScaleSmall)
+      ? 0.7
+      : SCALE_BASE_DEFAULT
+
+    customZooming.config({ scaleBase })
+  })
+
+  function isActive(el) {
+    return el.classList.contains(ACTIVE_CLASS)
+  }
+
+  function activate(el) {
+    el.classList.add(ACTIVE_CLASS)
+  }
+
+  function deactivate(el) {
+    el.classList.remove(ACTIVE_CLASS)
+  }
+
+  function toggleActive(el) {
+    if (isActive(el)) {
+      deactivate(el)
+      return false
+    } else {
+      activate(el)
+      return true
+    }
+  }
+</script>
+<!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+     
+  
+    
+    
+	</body>
+</html>
